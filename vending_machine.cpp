@@ -26,27 +26,25 @@ void show_menu() {
     cash_register money;
     int product;
     std::cin >> product;
-    while (product) {
-        switch (product){
-            case 1:
-                sell_product(candy, money);
-                break;
-            case 2:
-                sell_product(chips, money);
-                break;
-            case 3:
-                sell_product(gum, money);
-                break;
-            case 4:
-                sell_product(cookies, money);
-                break;
-            case 5:
-                break;
-            default:
-                std::cout << "Введено некорректное значение. Попробуйте заново." << "\n";
-                std::cin >> product;
-                break;
-        }
+    switch (product){
+        case 1:
+            sell_product(candy, money);
+            break;
+        case 2:
+            sell_product(chips, money);
+            break;
+        case 3:
+            sell_product(gum, money);
+            break;
+        case 4:
+            sell_product(cookies, money);
+            break;
+        case 5:
+            break;
+        default:
+            std::cout << "Введено некорректное значение. Попробуйте заново." << "\n";
+            std::cin >> product;
+            break;
     }
 }
 
@@ -59,6 +57,7 @@ void sell_product(dispenser_type& product, cash_register& money) {
             std::cout << "Оплата не прошла, недостаточно средств. Пожалуйста, повторите попытку" << "\n";
             std::cin >> amount;
         }
+
         if (amount == product.get_cost()) {
             money.accept_amount(amount);
             std::cout << "Оплата прошла успешно. Пожалуйста, заберите ваш товар." << "\n";
