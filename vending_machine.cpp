@@ -20,31 +20,36 @@ void show_menu() {
     std::cout << "5. Закрыть меню" << "\n";
 
     dispenser_type candy(10, 30); 
-    dispenser_type chips(5, 80);
+    dispenser_type chips(0, 80);
     dispenser_type gum(15, 30); 
     dispenser_type cookies(10, 50); 
     cash_register money;
     int product;
     std::cin >> product;
-    switch (product){
-        case 1:
-            sell_product(candy, money);
-            break;
-        case 2:
-            sell_product(chips, money);
-            break;
-        case 3:
-            sell_product(gum, money);
-            break;
-        case 4:
-            sell_product(cookies, money);
-            break;
-        case 5:
-            break;
-        default:
-            std::cout << "Введено некорректное значение. Попробуйте заново." << "\n";
-            std::cin >> product;
-            break;
+    int cnt = 0;
+    while (product) {
+        switch (product){
+            case 1:
+                sell_product(candy, money);
+                break;
+            case 2:
+                sell_product(chips, money);
+                break;
+            case 3:
+                sell_product(gum, money);
+                break;
+            case 4:
+                sell_product(cookies, money);
+                break;
+            case 5:
+                break;
+            default:
+                std::cout << "Введено некорректное значение. Попробуйте заново." << "\n";
+                std::cin >> product;
+                break;
+        }
+        if (cnt != 0) break;
+        cnt += 1;
     }
 }
 
