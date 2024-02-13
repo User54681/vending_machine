@@ -20,7 +20,7 @@ void show_menu() {
     std::cout << "5. Закрыть меню" << "\n";
 
     dispenser_type candy(10, 30); 
-    dispenser_type chips(0, 80);
+    dispenser_type chips(5, 80);
     dispenser_type gum(15, 30); 
     dispenser_type cookies(10, 50); 
     cash_register money;
